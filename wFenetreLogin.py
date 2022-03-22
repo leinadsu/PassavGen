@@ -8,6 +8,7 @@ from tkinter import *
 from PIL import Image
 from PIL.ImageTk import PhotoImage
 
+from wFenetreCreationUtilisateur import FenetreCreationUtilisateur
 from wFenetreListeProjets import FenetreListeProjet
 
 
@@ -80,8 +81,14 @@ class FenetreLogin(Tk):  # declaration de l'objet
         self.BoutonQuitter = Button(self, text="Quitter", relief=GROOVE, font=("Calibri", 10), command=self.destroy)
         self.BoutonQuitter.place(x=self.leftPadding + 180, y=self.paddingtop + 21)
 
+        # ELEMENT GRAPHIQUE : <Button>
         self.BoutonValideAuthentification = Button(self, text="Valider", relief=GROOVE, font=("Calibri", 10), command=self.CommandeVerifieAuthentification)
         self.BoutonValideAuthentification.place(x=self.leftPadding + 90, y=self.paddingtop + 21)
+
+        # ELEMENT GRAPHIQUE : <Button>
+        self.BoutonNouvelUtilisateur = Button(self, text="Nouvel utilisateur", relief=GROOVE, font=("Calibri", 10),
+                                                   command=self.CommandeNouvelUtilisateur)
+        self.BoutonNouvelUtilisateur.place(x=self.leftPadding + 90, y=self.paddingtop + 70)
 
 
     # FONCTIONS OUTILS réglant le plein écran
@@ -102,5 +109,13 @@ class FenetreLogin(Tk):  # declaration de l'objet
         app.mainloop()  # Ouvre l'objet
         # ========================
 
+    def CommandeNouvelUtilisateur(self):  # Fonction doit être mise avant sinon erreur
+        self.destroy()
+        # ferme Fenetre ouverture, destroy supprime aussi toute les modifications qu'aura recue un objet :
+        app = FenetreCreationUtilisateur()
+        app.focus_force()  # Force le focus sur la fenetre, pour ne pas avoir besoin de cliquer dessus et risquer
+        # d'endommager le code.
+        app.mainloop()  # Ouvre l'objet
+        # ========================
     def alert(self):
         print("****   valider")

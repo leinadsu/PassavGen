@@ -5,7 +5,6 @@
 # Bibliothèques et importations :
 import os  # Sert pour simplifier l'écriture du chemin d'accès d'un fichier (voir os.getcwd()).
 from tkinter import *
-from PIL import Image
 from PIL.ImageTk import PhotoImage  # Ces deux liens servent pour amener les fonctions fixant les images de fond.
 from wFenetreLogin import FenetreLogin
 
